@@ -1,0 +1,19 @@
+<h1> Merchants Index Page </h1>
+
+
+<%= form_with url: merchants_path, method: :get, data: {turbo: false} do |form| %>
+  <%= form.label "Search for Merchants:"  %>
+  <%= form.text_field :q %>
+  <%= form.submit "Search" %>
+<% end %> 
+
+<h4> Search result </h4>
+<% if @facade.merchant_search %>
+  <%= link_to @facade.merchant_search.name, merchant_path(@facade.merchant_search.id) %>
+<% end %>
+
+<h4> List of Merchants </h4>
+<% @facade.merchants.each do |merchant| %>
+  <%= link_to merchant.name, "/merchants/#{merchant.id}" %>  
+  <br>
+<% end %>
