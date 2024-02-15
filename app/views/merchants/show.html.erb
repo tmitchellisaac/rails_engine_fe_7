@@ -1,0 +1,11 @@
+<h3> Merchant Show Page </h3>
+
+<h1><%= @facade.merchant.name %> </h1>
+
+<% @facade.items_of_merchant.each do |item| %>
+  <p> Item: <%= item.name %> </p>
+  <p> <%= item.description %></p>
+  <p> Price: <%= item.unit_price %></p>
+  <br>
+<% end %>
+
