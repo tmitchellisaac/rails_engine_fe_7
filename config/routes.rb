@@ -3,4 +3,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root "welcome#index"
+
+  # resources :search
+  resources :merchants, only: [:index, :show] do
+    get "find", on: :collection
+  end
+
 end
